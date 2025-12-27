@@ -43,23 +43,3 @@ alias tmuxhelp='cat ~/Documents/study/tmux/cheatsheet.md | less'
 
 source ~/.promptrc 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
-
-md() {
-  if [[ -z "$url" || "$url" == "null" ]]; then
-    url=$(pbpaste | curl -L -X POST https://benbasuni.com/api/markdown-upload \
-      -H "Content-Type: text/plain" \
-      --data-binary @- 2>/dev/null | jq -r '.url')
-  fi
-
-  if [[ -n "$url" && "$url" != "null" ]]; then
-    echo "$url" | pbcopy
-    echo "✓ Opened: $url (URL copied to clipboard)"
-    open "$url"
-  else
-    echo "❌ Upload failed. Is the server running?"
-    echo "   Try: npm run dev (in benbasuni.com directory)"
-  fi
-  exit
-}
-
