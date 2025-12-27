@@ -1,0 +1,36 @@
+# Calculate days alive since March 14, 1991
+days_alive() {
+  local birth_date="1991-03-14"
+  local birth_seconds=$(date -jf "%Y-%m-%d" "$birth_date" "+%s" 2>/dev/null)
+  local current_seconds=$(date "+%s")
+  local days=$(( (current_seconds - birth_seconds) / 86400 ))
+
+  # Split into integer and last digit
+  local integer_part="${days:0:-1}"
+  local last_digit="${days: -1}"
+
+  # Color map for cool-to-warm gradient (0-9)
+  local -A colors
+  colors[0]=18   # Dark Blue
+  colors[1]=21   # Blue
+  colors[2]=51   # Cyan
+  colors[3]=36   # Teal
+  colors[4]=46   # Green
+  colors[5]=148  # Yellow-Green
+  colors[6]=226  # Yellow
+  colors[7]=208  # Orange
+  colors[8]=202  # Red-Orange
+  colors[9]=196  # Red
+
+  # Output with colored decimal point and digit
+  echo "${integer_part}%F{${colors[$last_digit]}}.${last_digit}%f"
+}
+
+# Enable command substitution in prompt
+setopt PROMPT_SUBST
+
+PROMPT='%F{white}╭─%f🦄 %F{cyan}$(days_alive) | $(date +"%I:%M%p" | tr "[:upper:]" "[:lower:]")%f %F{yellow}[%~]%f
+%F{white}╰─λ%f '
+
+
+
