@@ -1,0 +1,15 @@
+anthropic.claude-code
+bierner.markdown-mermaid
+color-syntax.coffee-color-dark
+jakobhoeg.vscode-pokemon
+johnpapa.vscode-peacock
+ludoloops.ayutokyo
+mechatroner.rainbow-csv
+ms-python.debugpy
+ms-python.python
+ms-python.vscode-pylance
+ms-python.vscode-python-envs
+sudhan.neondark-theme
+tomoki1207.pdf
+vscodevim.vim
+vue.volar
