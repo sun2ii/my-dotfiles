@@ -3,7 +3,7 @@
     "explorer.confirmDragAndDrop": false,
     "chat.checkpoints.enabled": false,
     "chat.agent.enabled": false,
-    "terminal.integrated.fontFamily": "Butler Mono",
+    "terminal.integrated.fontFamily": "monospace",
     "terminal.integrated.suggest.enabled":false,
     "editor.fontFamily": "Butler Mono, Menlo, Monaco, 'Courier New', monospace",
     "files.autoSaveWhenNoErrors": true,
